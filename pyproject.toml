@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "text-claude"
+version = "0.1.0"
+description = "Gmail to Claude Code integration app that listens for text messages and launches Claude Code sessions"
+authors = [
+    {name = "Jonathan Li", email = "jonathanmingli@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "google-api-python-client>=2.0.0",
+    "google-auth-httplib2>=0.1.0",
+    "google-auth-oauthlib>=1.0.0",
+    "google-cloud-pubsub>=2.18.0",
+    "flask>=2.3.0",
+    "requests>=2.28.0",
+]
+
+[project.scripts]
+text-claude = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json"]
